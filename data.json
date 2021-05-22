@@ -1,0 +1,67 @@
+{
+  "tradeRecords": [
+    {
+      "TradeId": "T1",
+      "Version": "1",
+      "Counter-PartyId": "CP-1",
+      "Book-Id": "B1",
+      "MaturityDate": "05/20/2020",
+      "CreatedDate": "05/22/2021",
+      "Expired": "N"
+    },
+    {
+      "TradeId": "T2",
+      "Version": "2",
+      "Counter-PartyId": "CP-2",
+      "Book-Id": "B1",
+      "MaturityDate": "05/20/2021",
+      "CreatedDate": "05/22/2021",
+      "Expired": "N"
+    },
+    {
+      "TradeId": "T2",
+      "Version": "1",
+      "Counter-PartyId": "CP-1",
+      "Book-Id": "B1",
+      "MaturityDate": "05/20/2021",
+      "CreatedDate": "03/14/2015",
+      "Expired": "N"
+    },
+    {
+      "TradeId": "T3",
+      "Version": "3",
+      "Counter-PartyId": "CP-3",
+      "Book-Id": "B2",
+      "MaturityDate": "05/20/2014",
+      "CreatedDate": "05/22/2021",
+      "Expired": "Y"
+    },
+    {
+      "TradeId": "T5",
+      "Version": "3",
+      "Counter-PartyId": "CP-3",
+      "Book-Id": "B2",
+      "MaturityDate": "05/23/2021",
+      "CreatedDate": "05/22/2021",
+      "Expired": "Y"
+    },
+    {
+      "TradeId": "T6",
+      "Version": "6",
+      "Counter-PartyId": "CP-3",
+      "Book-Id": "B2",
+      "MaturityDate": "05/23/2021",
+      "CreatedDate": "05/22/2021",
+      "Expired": "Y"
+    },
+    {
+      "TradeId": "T7",
+      "Version": "3",
+      "Counter-PartyId": "CP-3",
+      "Book-Id": "B2",
+      "MaturityDate": "05/20/2014",
+      "CreatedDate": "05/22/2021",
+      "Expired": "Y"
+    }
+  ]
+}
