@@ -1,6 +1,5 @@
 package com.tradestore;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,8 +23,8 @@ public class TradeStoreUtil {
 
     /**
      * 
-     * @param fileName - Entire path and the filename of the json file that needs to
-     *                 be read
+     * @param fileName {String} - Entire path and the filename of the json file that
+     *                 needs to be read
      * @return
      */
     public Object readFileAndReturnJsonObject(String fileName) {
@@ -38,15 +37,15 @@ public class TradeStoreUtil {
     }
 
     /**
-     * description - This function reads a json file, parses the response and stores
-     * it Hashmap
-     *
-     * @throws FileNotFoundException
-     * @throws IOException
-     * @throws ParseException
+     * description - This function reads through the file, checks eligibility to add
+     * record and adds
+     * 
+     * @param fileName {String} - {String} - Entire path and the filename of the
+     *                 json file that needs to be read
+     * @return boolean - returns true if records found, else false
      */
-    public void saveTradesFromFile(String fileName) {
-        Object tradeRecordsData = readFileAndReturnJsonObject(fileName); // Read file, if exception, nothing happens
+    public boolean saveTradesFromFile(String fileName) {
+        Object tradeRecordsData = readFileAndReturnJsonObject(fileName); // Read file and returns object
 
         if (tradeRecordsData != null) {
 
@@ -65,9 +64,12 @@ public class TradeStoreUtil {
 
             if (!allRecords.isEmpty()) {
                 displayTradeStoreRecords(allRecords);
+                return true;
             } else {
-                System.out.println("No trades to display currently.");
+                return false;
             }
+        } else {
+            return false;
         }
 
     }
@@ -103,8 +105,15 @@ public class TradeStoreUtil {
                     : "";
             String bookId = record.get("Book-Id") != null ? record.get("Book-Id").toString() : "";
 
-            TradeStoreRecord tradeStoreRecord = new TradeStoreRecord(tradeId, currentVersion, counterPartyId, bookId,
-                    maturityDate, createdDate, expiredFlag);
+            TradeStoreRecord tradeStoreRecord = new TradeStoreRecord();
+            tradeStoreRecord.setTradeId(tradeId);
+            tradeStoreRecord.setVersion(currentVersion);
+            tradeStoreRecord.setCounterPartyId(counterPartyId);
+            tradeStoreRecord.setCreatedDate(createdDate);
+            tradeStoreRecord.setMaturityDate(maturityDate);
+            tradeStoreRecord.setBookId(bookId);
+            tradeStoreRecord.setExpired(expiredFlag);
+
             allRecords.put(currentVersion, tradeStoreRecord);
         } else {
             System.out.println("Record: " + record.toJSONString() + "cannot be added.");

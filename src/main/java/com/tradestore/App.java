@@ -3,8 +3,8 @@ package com.tradestore;
 /**
  * Hello Trade Store!
  */
-public final class App {
-  private App() {
+public class App {
+  protected App() {
   }
 
   static int lastVersion = 0;
@@ -16,10 +16,10 @@ public final class App {
    */
   public static void main(String[] args) {
     System.out.println("Welcome to the Trade Store! \n");
-
     TradeStoreUtil tradeStoreUtil = new TradeStoreUtil();
-    tradeStoreUtil.saveTradesFromFile("./data.json");
-
+    boolean recordsFound = tradeStoreUtil.saveTradesFromFile("./data.json");
+    if (!recordsFound)
+      System.out.println("Seems like there are no records found..! ");
   }
 
 }

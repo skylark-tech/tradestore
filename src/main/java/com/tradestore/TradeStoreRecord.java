@@ -1,13 +1,16 @@
 package com.tradestore;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
+ * TradeStore single record Java bean class
+ * 
  * @author Shipra
  *
  */
 
-public class TradeStoreRecord {
+public class TradeStoreRecord implements Serializable {
 
   String tradeId;
   int version;
@@ -16,27 +19,6 @@ public class TradeStoreRecord {
   LocalDate maturityDate;
   LocalDate createdDate;
   char expired;
-
-  /**
-   * @param tradeId
-   * @param version
-   * @param counterPartyId
-   * @param bookId
-   * @param maturityDate
-   * @param createdDate
-   * @param expired
-   */
-  public TradeStoreRecord(String tradeId, int version, String counterPartyId, String bookId, LocalDate maturityDate,
-      LocalDate createdDate, char expired) {
-    super();
-    this.tradeId = tradeId;
-    this.version = version;
-    this.counterPartyId = counterPartyId;
-    this.bookId = bookId;
-    this.maturityDate = maturityDate;
-    this.createdDate = createdDate;
-    this.expired = expired;
-  }
 
   /**
    * @return the tradeId
